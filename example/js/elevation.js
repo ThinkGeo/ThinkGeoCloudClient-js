@@ -31,7 +31,7 @@ ol.inherits(app.drawLineControl, ol.control.Control);
 
 let satelliteLayer = new ol.layer.Tile({
   source: new ol.source.XYZ({
-    url: "https://cloud.thinkgeo.com/api/v1/maps/raster/aerial/x1/3857/512/{z}/{x}/{y}.jpeg" +
+    url: "https://cloud.thinkgeo.com/api/v2/maps/raster/aerial2/x1/3857/512/{z}/{x}/{y}.jpeg" +
       "?apiKey=Yy6h5V0QY4ua3VjqdkJl7KTXpxbKgGlFJWjMTGLc_8s~",
     tileSize: 512
   }),

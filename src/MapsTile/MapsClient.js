@@ -28,6 +28,7 @@ class MapsClient extends BaseClient {
                 case RasterMapType.Dark:
                 case RasterMapType.Hybrid:
                 case RasterMapType.Aerial:
+                case RasterMapType.Aerial2:
                     break;
                 case RasterMapType.TransparentBackground:
                     mapType = "transparent-background";
@@ -70,6 +71,7 @@ class MapsClient extends BaseClient {
         var fileExtension = "jpeg";
         switch (style) {
             case RasterMapType.Aerial:
+            case RasterMapType.Aerial2:
             case RasterMapType.Hybrid:
                 fileExtension = "jpeg";
                 break;

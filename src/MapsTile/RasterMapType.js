@@ -4,6 +4,7 @@ const RasterMapType = {
     Dark: 'dark',
     Hybrid: 'hybrid',
     Aerial: 'aerial',
+    Aerial2: 'aerial2',
     TransparentBackground: 'transparentBackground',
 };
 
