@@ -68,7 +68,7 @@ Reference the library directly from ThinkGeo's CDN:
 
 ```html
 <!-- Latest minified version of ThinkGeoCloudClient.js -->
-<script src="https://cdn.thinkgeo.com/cloudclient-js/1.0.4/thinkgeocloudclient.js"></script>
+<script src="https://cdn.thinkgeo.com/cloudclient-js/1.0.10/thinkgeocloudclient.js"></script>
 ```
 
 #### NPM

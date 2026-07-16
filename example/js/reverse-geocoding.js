@@ -198,8 +198,23 @@ const renderNearbyResult = function (response) {
 
 }
 
+const getSelectedDataSources = function () {
+    const checked = document.querySelectorAll('#data-sources input[name="ds"]:checked');
+    return Array.from(checked).map(el => el.value);
+};
+
 //search nearby
 const reverseGeocode = function (coordinate, flag) {
+    const dataSources = getSelectedDataSources();
+    const options = {
+        srid: 3857,
+        searchRadius: 500,
+        maxResults: 20,
+        verboseResults: true,
+    };
+    if (dataSources.length > 0) {
+        options.dataSources = dataSources;
+    }
     reverseGeocodingClient.searchPlaceByPoint(coordinate[0], coordinate[1], function (status, data) {
         if (data.data.bestMatchLocation) {
             let address = data.data.bestMatchLocation.data.address;
@@ -219,12 +234,7 @@ const reverseGeocode = function (coordinate, flag) {
             window.alert('No results found');
         }
 
-    }, {
-            srid: 3857,
-            searchRadius: 500,
-            maxResults: 20,
-            verboseResults: true,
-        });
+    }, options);
 }
 
 map.addEventListener('click', function (evt) {

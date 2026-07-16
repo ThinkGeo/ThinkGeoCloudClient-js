@@ -32,6 +32,43 @@
             margin-bottom: 0px;
         }
 
+        #data-sources {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 5;
+            padding: 8px 12px;
+            width: 180px;
+            background-color: #fff;
+            border: 1px solid rgb(185, 185, 185);
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Cambria', 'sans-serif';
+            font-size: 0.85rem;
+            line-height: 22px;
+        }
+
+        #data-sources .ds-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        #data-sources label {
+            display: block;
+            cursor: pointer;
+        }
+
+        #data-sources input[type="checkbox"] {
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        @media only screen and (max-device-width: 767px) {
+            #data-sources {
+                width: 140px;
+            }
+        }
+
         #latlng {
             width: 225px;
             padding: 3px 12px;
@@ -194,6 +231,14 @@
         <div id="floating-panel">
             <p>Click on the map and get the POIs nearby</p>
         </div>
+        <div id="data-sources">
+            <div class="ds-title">Data sources</div>
+            <label><input type="checkbox" name="ds" value="osm" checked> OpenStreetMap</label>
+            <label><input type="checkbox" name="ds" value="oa" checked> OpenAddresses</label>
+            <label><input type="checkbox" name="ds" value="wof" checked> Who's On First</label>
+            <label><input type="checkbox" name="ds" value="gn" checked> GeoNames</label>
+            <label><input type="checkbox" name="ds" value="ot" checked> Overture</label>
+        </div>
     </div>
     <div id="popup" class="ol-popup hidden">
         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -201,7 +246,7 @@
     </div>
     <!-- latest minified version of vectormap.js -->
     <script src="https://cdn.thinkgeo.com/vectormap-js/2.0.2/vectormap.js"></script>
-    <script src="https://cdn.thinkgeo.com/cloudclient-js/1.0.3/thinkgeocloudclient.js"></script>
+    <script src="https://cdn.thinkgeo.com/cloudclient-js/1.0.10/thinkgeocloudclient.js"></script>
 
     <!-- option: Map Suite World Streets Styles -->
     <script src="https://cdn.thinkgeo.com/vectormap-icons/1.0.0/webfontloader.js"></script>

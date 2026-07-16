@@ -16,21 +16,29 @@ class GeocodingClient extends BaseClient {
             this.searchBatch(opts, callback);
         }
     }
-    
+
     searchByPoint(location, callback, options) {
         if (location === undefined || location === null || location === '') {
             throw new Error("Missing the required parameter 'searchText' when calling searchByPoint");
         }
-        let path = '/api/v2/location/geocode/{searchText}';
+
+        let opts = options || {};
+
+        let path = '/api/v3/location/geocode/{searchText}';
         let httpMethod = 'GET';
         let pathParams = {
             'searchText': location
         };
-
-        let queryParams = options || {};
-        delete queryParams["location"];
-
-        let bodyParam = {};
+        let queryParams = {
+            'Autocomplete': opts['autocomplete'],
+            'CountryCodes': opts['countryCodes'],
+            'Language': opts['language'],
+            'BoundingBox': opts['boundingBox'],
+            'Srid': opts['srid'],
+            'MaxResults': opts['maxResults'],
+            'OutputFormat': opts['outputFormat'],
+        };
+        let bodyParam = null;
         let contentTypes = [];
         let returnType = 'json';
 
@@ -40,15 +48,11 @@ class GeocodingClient extends BaseClient {
     searchBatch(options, callback) {
         let opts = options || {};
 
-        let path = '/api/v2/location/geocode/multi';
+        let path = '/api/v3/location/multi-geocode';
         let httpMethod = 'POST';
-        let pathParams = {
-        };
-
-        let queryParams = options || {};
-        delete queryParams["body"];
-        
-        let bodyParam = opts['body'];
+        let pathParams = {};
+        let queryParams = {};
+        let bodyParam = JSON.stringify(opts['body']);
         let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
         let returnType = 'json';
 
